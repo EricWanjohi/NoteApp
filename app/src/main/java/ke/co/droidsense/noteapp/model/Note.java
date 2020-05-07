@@ -1,11 +1,15 @@
 package ke.co.droidsense.noteapp.model;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Note")
 public class Note {
+
     //Member Variables
 
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String title;
     private String description;
 
@@ -18,6 +22,10 @@ public class Note {
 
     //Getters..
 
+    public int getId() {
+        return id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -28,6 +36,10 @@ public class Note {
 
     //Setters...
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -35,4 +47,6 @@ public class Note {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

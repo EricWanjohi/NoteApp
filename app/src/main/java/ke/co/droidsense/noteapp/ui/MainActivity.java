@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import es.dmoral.toasty.Toasty;
 import ke.co.droidsense.noteapp.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,8 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            //Toast.
+            Toasty.success( this, "Transitioning to Settings Activity" );
             return true;
         } else if (id == R.id.action_new_note) {
+            //Toast.
+            Toasty.success( this, "Transitioning to New Note Activity" );
             return true;
         }
 
