@@ -2,7 +2,7 @@ package ke.co.droidsense.noteapp.model;
 
 import androidx.room.Entity;
 
-@Entity
+@Entity(tableName = "Note")
 public class Note {
     //Member Variables
 
