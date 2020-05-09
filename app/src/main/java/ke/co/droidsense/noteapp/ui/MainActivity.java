@@ -6,11 +6,28 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import es.dmoral.toasty.Toasty;
 import ke.co.droidsense.noteapp.R;
+import ke.co.droidsense.noteapp.adapter.NoteAdapter;
+import ke.co.droidsense.noteapp.model.Note;
+import ke.co.droidsense.noteapp.viewModel.NoteViewModel;
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {
+    //Member Variables...
+    private RecyclerView recyclerView;
+    private NoteAdapter noteAdapter;
+    private NoteViewModel noteViewModel;
+    private LinearLayoutManager linearLayoutManager;
+    private List<Note> noteList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +36,46 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById( R.id.toolbar );
         setSupportActionBar( toolbar );
 
+        //Initializations...
+        Timber.plant( new Timber.DebugTree() );
+        noteList = new ArrayList<>();
+
+        //Set up RecyclerView...
+        setUpRecyclerView();
+
+        //Set up ViewModel...
+        setUpViewModel();
+    }
+
+    //ViewModel Configs...
+    private void setUpViewModel() {
+        //Get ViewModel...
+        noteViewModel = ViewModelProviders.of( this ).get( NoteViewModel.class );
+        noteViewModel.getNotesLiveData().observe( this, new Observer<Note>() {
+            @Override
+            public void onChanged(Note note) {
+                //Log Note data...
+                Timber.e( note.getTitle() );
+                Timber.e( note.getDescription() );
+            }
+        } );
+    }
+
+    //Recycler View Configs...
+    private void setUpRecyclerView() {
+        //Check if adapter is null...
+        if (noteAdapter == null) {
+            //Create new Instance...
+            recyclerView = findViewById( R.id.recyclerView );
+            linearLayoutManager = new LinearLayoutManager( this );
+            noteAdapter = new NoteAdapter( noteList, this );
+            noteAdapter.notifyDataSetChanged();
+            recyclerView.setLayoutManager( linearLayoutManager );
+            recyclerView.setAdapter( noteAdapter );
+            recyclerView.setHasFixedSize( true );
+        } else {
+            noteAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override

@@ -19,5 +19,7 @@ public class NoteViewModel extends AndroidViewModel {
         super( application );
     }
 
-
+    public LiveData<Note> getNotesLiveData() {
+        return noteLiveData;
+    }
 }

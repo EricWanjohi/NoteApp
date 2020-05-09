@@ -33,7 +33,7 @@
             android:ellipsize="end"
             android:minLines="1"
             android:padding="@dimen/padding16dp"
-            android:text="@string/note_title"
+            android:text="@string/note_desc"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="18sp"
