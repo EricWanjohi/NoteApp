@@ -8,4 +8,60 @@
     tools:context=".ui.NoteDetailsActivity"
     tools:showIn="@layout/activity_note_details">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin4dp"
+        android:layout_marginTop="@dimen/margin1dp"
+        android:layout_marginEnd="@dimen/margin4dp"
+        android:layout_marginBottom="@dimen/margin1dp"
+        android:background="@color/dark_background"
+        app:cardCornerRadius="@dimen/cardCornerRadius6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/note_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="4"
+                android:minLines="1"
+                android:padding="@dimen/padding4dp"
+                android:paddingStart="@dimen/padding16dp"
+                android:paddingEnd="@dimen/padding16dp"
+                android:text="@string/note_title"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/title_text_size"
+                android:textStyle="bold|normal" />
+
+            <TextView
+                android:id="@+id/note_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/note_title"
+                android:padding="@dimen/padding4dp"
+                android:paddingStart="@dimen/padding16dp"
+                android:paddingEnd="@dimen/padding16dp"
+                android:text="@string/note_desc"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/desc_text_size"
+                android:textStyle="normal"
+                tools:layout_editor_absoluteX="4dp"
+                tools:layout_editor_absoluteY="306dp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

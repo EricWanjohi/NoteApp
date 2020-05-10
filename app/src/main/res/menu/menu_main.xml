@@ -4,12 +4,13 @@
     tools:context="ke.co.droidsense.noteapp.ui.MainActivity">
     <item
         android:id="@+id/action_new_note"
-        android:icon="@android:drawable/ic_input_add"
+        android:icon="@drawable/ic_add_black_24dp"
         android:title="@string/new_note"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_settings_black_24dp"
+        app:showAsAction="always" />
 </menu>

@@ -75,16 +75,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         @Override
         public void onClick(View view) {
             //Get object tag and handle click events.
-            View taggedNote = (View) view.getTag();
+            Note taggedNote = (Note) view.getTag();
 
             //Transition to details activity.
-            if (view == taggedNote) {
-                //Create Intent.
-                Intent detailsIntent = new Intent( context, NoteDetailsActivity.class );
-                detailsIntent.putExtra( "note_title", note_title.getText().toString() );
-                detailsIntent.putExtra( "note_desc", note_desc.getText().toString() );
-                context.startActivity( detailsIntent );
-            }
+            Intent detailsIntent = new Intent( context, NoteDetailsActivity.class );
+            detailsIntent.putExtra( "note_title", taggedNote.getTitle() );
+            detailsIntent.putExtra( "note_desc", taggedNote.getDescription() );
+            context.startActivity( detailsIntent );
         }
     }
 }

@@ -3,4 +3,10 @@
     <dimen name="padding4dp">4dp</dimen>
     <dimen name="margin16dp">16dp</dimen>
     <dimen name="padding16dp">16dp</dimen>
+    <dimen name="padding1dp">1dp</dimen>
+    <dimen name="title_text_size">18sp</dimen>
+    <dimen name="desc_text_size">16sp</dimen>
+    <dimen name="margin4dp">4dp</dimen>
+    <dimen name="margin1dp">1dp</dimen>
+    <dimen name="cardCornerRadius6dp">6dp</dimen>
 </resources>

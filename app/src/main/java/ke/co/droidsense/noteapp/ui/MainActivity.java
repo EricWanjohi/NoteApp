@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private NoteAdapter noteAdapter;
     private NoteViewModel noteViewModel;
     private LinearLayoutManager linearLayoutManager;
-    private List<Note> noteList;
+    private ArrayList<Note> noteList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +51,28 @@ public class MainActivity extends AppCompatActivity {
     private void setUpViewModel() {
         //Get ViewModel...
         noteViewModel = ViewModelProviders.of( this ).get( NoteViewModel.class );
-        noteViewModel.getNotesLiveData().observe( this, new Observer<Note>() {
+        noteViewModel.getNotesLiveData().observe( this, new Observer<List<Note>>() {
             @Override
-            public void onChanged(Note note) {
+            public void onChanged(List<Note> notes) {
+
                 //Log Note data...
-                Timber.e( note.getTitle() );
-                Timber.e( note.getDescription() );
+                Timber.e( noteList.toString() );
+
+                //Add notes to list...
+                noteList.addAll( notes );
+
+                //Notify adapter of changes in list...
+                noteAdapter.notifyDataSetChanged();
+
+                //Show Success Toast...
+                showToast();
             }
         } );
+    }
+
+    //Show Toasty's Success...
+    private void showToast() {
+        Toasty.success( this, "Successful Load", Toasty.LENGTH_SHORT ).show();
     }
 
     //Recycler View Configs...
@@ -67,9 +81,10 @@ public class MainActivity extends AppCompatActivity {
         if (noteAdapter == null) {
             //Create new Instance...
             recyclerView = findViewById( R.id.recyclerView );
-            linearLayoutManager = new LinearLayoutManager( this );
-            noteAdapter = new NoteAdapter( noteList, this );
-            noteAdapter.notifyDataSetChanged();
+            noteAdapter = new NoteAdapter( noteList, getApplicationContext() );
+            linearLayoutManager = new LinearLayoutManager( getApplicationContext() );
+
+
             recyclerView.setLayoutManager( linearLayoutManager );
             recyclerView.setAdapter( noteAdapter );
             recyclerView.setHasFixedSize( true );

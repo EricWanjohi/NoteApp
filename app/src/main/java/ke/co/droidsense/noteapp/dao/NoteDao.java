@@ -5,6 +5,9 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
+
+import java.util.List;
 
 import ke.co.droidsense.noteapp.model.Note;
 
@@ -15,7 +18,7 @@ public interface NoteDao {
 
     //Query All Notes from NoteDb...
     @Query("SELECT * FROM Note")
-    LiveData<Note> getAllNotes();
+    LiveData<List<Note>> getAllNotes();
 
     //Insert Note Item to NoteDb...
     @Insert(onConflict = REPLACE)
@@ -24,4 +27,8 @@ public interface NoteDao {
     //Delete Note Item From NoteDb...
     @Delete
     void deleteNoteItem(Note note);
+
+    //Update Note Item.
+    @Update(onConflict = REPLACE)
+    void updateNoteItem(Note note);
 }
