@@ -6,4 +6,7 @@
     <string name="note_title">Note Title</string>
     <string name="note_desc">Note Description</string>
     <string name="menu_edit_text">Edit</string>
+    <string name="cancel_edit_button_text">Cancel</string>
+    <string name="edit_note_button_text">Edit</string>
+    <string name="frag_header_text">Edit Note</string>
 </resources>

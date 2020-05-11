@@ -20,6 +20,10 @@ public interface NoteDao {
     @Query("SELECT * FROM Note")
     LiveData<List<Note>> getAllNotes();
 
+    //Query Specific Note from NoteDb...
+    @Query("SELECT * FROM Note WHERE title = :title")
+    Note getNote(String title);
+
     //Insert Note Item to NoteDb...
     @Insert(onConflict = REPLACE)
     void addNoteItem(Note note);

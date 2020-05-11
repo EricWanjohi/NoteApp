@@ -9,4 +9,7 @@
     <dimen name="margin4dp">4dp</dimen>
     <dimen name="margin1dp">1dp</dimen>
     <dimen name="cardCornerRadius6dp">6dp</dimen>
+    <dimen name="margin0dp">0dp</dimen>
+    <dimen name="textSize16sp">16sp</dimen>
+    <dimen name="textSize18sp">18sp</dimen>
 </resources>

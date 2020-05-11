@@ -9,12 +9,12 @@
     tools:showIn="@layout/activity_note_details">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin4dp"
         android:layout_marginTop="@dimen/margin1dp"
         android:layout_marginEnd="@dimen/margin4dp"
-        android:layout_marginBottom="@dimen/margin1dp"
         android:background="@color/dark_background"
         app:cardCornerRadius="@dimen/cardCornerRadius6dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,5 +63,15 @@
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/edit_note_frag"
+        android:name="ke.co.droidsense.noteapp.fragment.EditNoteFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

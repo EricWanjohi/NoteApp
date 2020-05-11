@@ -81,6 +81,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             Intent detailsIntent = new Intent( context, NoteDetailsActivity.class );
             detailsIntent.putExtra( "note_title", taggedNote.getTitle() );
             detailsIntent.putExtra( "note_desc", taggedNote.getDescription() );
+
+            /*
+             * TODO: Add Parceler to Model class so as to Serialize the object for transition to next activity...
+             **/
             context.startActivity( detailsIntent );
         }
     }
